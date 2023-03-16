@@ -1748,7 +1748,7 @@ class CustomSequenceForm {
                 </div>
             </div>`;
         });
-
+        console.log("cards=================>", cards)
         document.getElementById("card-section").innerHTML = cards.join("");
         document.getElementById("frm_mcl_availableoptions").innerHTML = cards.join("");
     }
