@@ -1754,18 +1754,19 @@ class CustomSequenceForm {
         document.getElementById("card-section").innerHTML = cards.join("");
         document.getElementById("frm_mcl_availableoptions").innerHTML = cards.join("");
 
-
-        document.querySelector("#frm_mcl_availableoptions .card-section").addEventListener("click", function(event) {
-            var targetElement = event.target || event.srcElement;
-            var allCards = document.querySelectorAll("#frm_mcl_availableoptions .card-section")
-            if(allCards) {
-                for(var card of allCards) {
+        var allCardsDoms = document.querySelectorAll("#frm_mcl_availableoptions .card-section");
+        if(allCardsDoms)
+        for(cardDom of allCardsDoms) {
+            cardDom.addEventListener("click", function(event) {
+                // var targetElement = event.target || event.srcElement;
+                for(var card of allCardsDoms) {
                     card.classList.remove('active')
                 }
-            }
-            targetElement.classList.add('active')
-            
-        });
+                cardDom.classList.add('active')
+                
+            });
+        }
+        
     }
 
     // pricing control
