@@ -1369,6 +1369,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGF1ZGk5NyIsImEiOiJjanJtY3B1bjYwZ3F2NGFvOXZ1a
 
                         console.log(data);
                         customSequenceForm.setDistance(routes[0].distance);
+                        console.log("locations=========>", this.originResult)
+
+                        // JCH330
+                        document.getElementById("frm_mcl_origin").innerHTML = `${this.originResult.place_name}`;
+                        document.getElementById("frm_mcl_destination").innerHTML = `${this.destinationResult.place_name}`;
+
                         customSequenceForm.setOrigin({ ...this.originResult });
                         customSequenceForm.setDestination({ ...this.destinationResult });
 
@@ -1483,7 +1489,7 @@ class CustomSequenceForm {
             origin:null,
             destination:null,
             distance:null,
-            cubicFeet:0,
+            cubicFeet: 1000, // JCH330
             rate:null,
             routes:[],
             firstName:null,
@@ -1642,6 +1648,7 @@ class CustomSequenceForm {
     setDistance(distance) {
         this.carrierInfo.distance = (distance / 1609.34).toFixed(0);
         document.getElementById("distance").innerHTML = `<b>${this.carrierInfo.distance} miles</b>`;
+        document.getElementById("frm_mcl_milterange").innerHTML = `${this.carrierInfo.distance}`;
     }
 
     setRoutes(routes) {
@@ -1706,6 +1713,24 @@ class CustomSequenceForm {
     }
 
     renderRouteCards() {
+        /* let cards = this.carrierInfo.routes.slice(0,2).map(route => {
+            return `<div class="card-section bg-light text-section" id="${route['Route #']}">
+                <div clas="title">USMPO ROUTE: ${route['Route #']}</div>
+                <div class="dot-number">DOT #: ${route['DOT #']}</div>
+
+                <div class="distance" >${route.From} TO ${route.To}: ${this.carrierInfo.distance} miles</div>
+                <div class="rate">
+                    <b>${route.Rate}</b>
+                </div>
+
+                <div class="occupied" >${route['% OCCUPIED']} Occupied</div>
+                
+                <div class="action-section">
+                    <b>ExPEDITE..</b>
+                </div>
+            </div>`;
+        }); */
+
         let cards = this.carrierInfo.routes.slice(0,2).map(route => {
             return `<div class="card-section bg-light text-section" id="${route['Route #']}">
                 <div clas="title">USMPO ROUTE: ${route['Route #']}</div>
@@ -1725,6 +1750,7 @@ class CustomSequenceForm {
         });
 
         document.getElementById("card-section").innerHTML = cards.join("");
+        document.getElementById("frm_mcl_availableoptions").innerHTML = cards.join("");
     }
 
     // pricing control
