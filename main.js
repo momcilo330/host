@@ -1763,7 +1763,9 @@ class CustomSequenceForm {
                     card.classList.remove('active')
                 }
                 cardDom.classList.add('active')
-                
+                // set selected option in the section
+                document.querySelector('#frm_mcl_').innerHTML = `${cardDom.querySelector('div.rate').innerHTML}`;
+                document.querySelector('#frm_mcl_selectedoption').innerHTML = `${cardDom.querySelector('div.title').textContent} ${cardDom.querySelector('div.dot-number').textContent} ${cardDom.querySelector('div.distance').textContent}`
             });
         }
         
