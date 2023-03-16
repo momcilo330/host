@@ -1264,7 +1264,7 @@ class CustomDirectionAPI {
                     if (this.originResult && this.destinationResult) {
                         this.computeRoutes();
 
-
+                        console.log('computeRoutessssssssssssssssssssssss')
                         routingInstance.colorRoutesByStates(this.originResult, this.destinationResult);
                         routingInstance.renderResultRoutes();
                     }
