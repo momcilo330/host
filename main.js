@@ -1404,7 +1404,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGF1ZGk5NyIsImEiOiJjanJtY3B1bjYwZ3F2NGFvOXZ1a
                         // routingInstance.findClosestAvailableRoute(this.userRoute, this.destinationResult, this.originResult);
                         // return features;
                         // JCH330_123321
-                        this.handlePricing();
+                        customSequenceForm.handlePricing();
                     })
                     .catch(console.error);
             }
