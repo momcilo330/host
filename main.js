@@ -1756,7 +1756,7 @@ class CustomSequenceForm {
 
         var allCardsDoms = document.querySelectorAll("#frm_mcl_availableoptions .card-section");
         if(allCardsDoms)
-        for(var cardDom of allCardsDoms) {
+        for(let cardDom of allCardsDoms) {
             cardDom.addEventListener("click", function(event) {
                 // var targetElement = event.target || event.srcElement;
                 for(var card of allCardsDoms) {
