@@ -1734,7 +1734,7 @@ class CustomSequenceForm {
         }); */
 
         let cards = this.carrierInfo.routes.slice(0,2).map(route => {
-            return `<div class="card-section bg-light text-section" id="${route['Route #']}">
+            return `<div class="card-section" id="${route['Route #']}">
                 <div clas="title">USMPO ROUTE: ${route['Route #']}</div>
                 <div class="dot-number">DOT #: ${route['DOT #']}</div>
 
@@ -1753,6 +1753,19 @@ class CustomSequenceForm {
         console.log("cards=================>", cards)
         document.getElementById("card-section").innerHTML = cards.join("");
         document.getElementById("frm_mcl_availableoptions").innerHTML = cards.join("");
+
+
+        document.querySelector("#frm_mcl_availableoptions .card-section").addEventListener("click", function(event) {
+            var targetElement = event.target || event.srcElement;
+            var allCards = document.querySelectorAll("#frm_mcl_availableoptions .card-section")
+            if(allCards) {
+                for(var card of allCards) {
+                    card.classList.remove('active')
+                }
+            }
+            targetElement.classList.add('active')
+            
+        });
     }
 
     // pricing control
