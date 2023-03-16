@@ -1735,7 +1735,7 @@ class CustomSequenceForm {
 
         let cards = this.carrierInfo.routes.slice(0,2).map(route => {
             return `<div class="card-section" id="${route['Route #']}">
-                <div clas="title">USMPO ROUTE: ${route['Route #']}</div>
+                <div class="title">USMPO ROUTE: ${route['Route #']}</div>
                 <div class="dot-number">DOT #: ${route['DOT #']}</div>
 
                 <div class="distance" >${route.From} TO ${route.To}: ${this.carrierInfo.distance} miles</div>
